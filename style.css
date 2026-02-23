@@ -39,6 +39,16 @@ body {
   font-weight: 500;
 }
 
+.typing-line {
+  margin-top: 22px;
+  font-size: 18px;
+  color: #4f4f4f;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  min-height: 28px;
+}
+
+
 
 .tagline {
   margin-top: 18px;
