@@ -1,13 +1,22 @@
+/* =========================
+   GLOBAL RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
+/* =========================
+   BODY BACKGROUND
+   Baby-friendly pastel base
+========================= */
 body {
   min-height: 100vh;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   color: #2f2f2f;
+
+  /* Soft baby pastel gradient */
   background: linear-gradient(
     180deg,
     #f6f0ff 0%,   /* lavender */
@@ -15,24 +24,51 @@ body {
     #eef6ff 75%,  /* baby blue */
     #ffffff 100%
   );
+
+  /* Subtle baby doodle pattern */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23d6d6d6' stroke-width='1' opacity='0.25'%3E%3Cpath d='M40 30c8-10 24-10 32 0'/%3E%3Ccircle cx='80' cy='70' r='10'/%3E%3Crect x='60' y='90' width='40' height='20' rx='8'/%3E%3Cpath d='M20 120h30'/%3E%3Cpath d='M110 120h30'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
 }
 
-
-
-
-/* Soft animated gradient */
-@keyframes babyFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* =========================
+   CORNER GLOWS
+========================= */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
 }
 
-/* HERO */
+/* Blue glow – bottom left */
+body::before {
+  left: -120px;
+  bottom: -120px;
+  background: rgba(180, 215, 255, 0.6);
+}
+
+/* Peach glow – bottom right */
+body::after {
+  right: -120px;
+  bottom: -120px;
+  background: rgba(255, 200, 200, 0.6);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
   text-align: center;
-  padding: 110px 20px 80px;
+  padding: 110px 20px 90px;
 }
 
+/* AYRIX logo – brush script */
 .logo {
   font-family: 'Pacifico', cursive;
   font-size: 58px;
@@ -41,43 +77,19 @@ body {
   color: #2f2f2f;
 }
 
-
+/* Typing line (cursive caption) */
 .typing-line {
   margin-top: 22px;
   font-size: 18px;
   color: #4f4f4f;
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  min-height: 28px;
+  min-height: 28px; /* prevents layout jump while typing */
 }
 
-
-
-.tagline {
-  margin-top: 18px;
-  font-size: 20px;
-  color: #3f3f3f;
-}
-
-.caption {
-  margin-top: 12px;
-  font-size: 15px;
-  color: #5a5a5a;
-  font-style: italic;
-}
-
-.intro {
-  margin-top: 24px;
-  font-size: 16px;
-  color: #4f4f4f;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-
-/* PRODUCTS (unchanged layout, softer look) */
+/* =========================
+   PRODUCTS SECTION
+========================= */
 .products {
   display: flex;
   justify-content: center;
@@ -86,34 +98,63 @@ body {
   flex-wrap: wrap;
 }
 
+/* Product cards */
 .card {
   background: #ffffff;
   width: 300px;
   padding: 35px;
   border-radius: 18px;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
 }
 
+/* Card title */
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+/* Soft baby heart cue */
 .card h2::before {
   content: "🤍 ";
 }
 
-
+/* Card text */
 .card p {
   font-size: 15px;
   color: #555;
+  line-height: 1.5;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 footer {
   text-align: center;
   padding: 40px 20px;
   font-size: 14px;
   color: #777;
+}
+
+/* =========================
+   RESPONSIVE TWEAKS
+========================= */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 48px;
+  }
+
+  .typing-line {
+    font-size: 16px;
+  }
+
+  .products {
+    padding: 40px 15px;
+  }
 }
