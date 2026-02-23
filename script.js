@@ -1,5 +1,5 @@
-// Logo typing (only "yrix", A already visible)
-const logoText = "yrix";
+// Logo typing (full "Ayrix")
+const logoText = "Ayrix";
 let logoIndex = 0;
 const logoTarget = document.getElementById("logo-type");
 
