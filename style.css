@@ -34,10 +34,13 @@ body {
 }
 
 .logo {
-  font-size: 50px;
-  letter-spacing: 6px;
-  font-weight: 500;
+  font-family: 'Pacifico', cursive;
+  font-size: 58px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #2f2f2f;
 }
+
 
 .typing-line {
   margin-top: 22px;
