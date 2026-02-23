@@ -1,5 +1,5 @@
 // Logo typing (YRIX only)
-const logoText = "YRIX";
+const logoText = "AYRIX";
 let logoIndex = 0;
 const logoTarget = document.getElementById("logo-type");
 
