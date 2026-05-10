@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AYRIX | Premium Home Organizers</title>
+<title>AYRIX | Smart Home Organization</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -28,34 +28,41 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* GOLDEN LIVE GLOW */
+/* LIVE GOLDEN GLOW */
 
 body::before{
 content:'';
 position:fixed;
 width:900px;
 height:900px;
-background:radial-gradient(circle,#ffd70055 0%,transparent 70%);
+background:
+radial-gradient(circle,
+rgba(255,215,0,0.30) 0%,
+transparent 70%);
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-animation:pulseGlow 5s infinite ease-in-out;
+animation:pulseGlow 5s ease-in-out infinite;
 z-index:-1;
 }
 
 @keyframes pulseGlow{
+
 0%{
-opacity:.4;
+opacity:.5;
 transform:translate(-50%,-50%) scale(1);
 }
+
 50%{
 opacity:1;
-transform:translate(-50%,-50%) scale(1.2);
+transform:translate(-50%,-50%) scale(1.18);
 }
+
 100%{
-opacity:.4;
+opacity:.5;
 transform:translate(-50%,-50%) scale(1);
 }
+
 }
 
 /* HERO */
@@ -70,28 +77,37 @@ text-align:center;
 padding:40px 20px;
 }
 
+/* LOGO */
+
 .logo{
-width:420px;
-margin-bottom:10px;
+width:430px;
+max-width:95%;
+margin-bottom:8px;
 
 filter:
 drop-shadow(0 0 12px #ffd700)
-drop-shadow(0 0 40px #ffd700);
+drop-shadow(0 0 45px #ffd70088);
 
 animation:floatLogo 4s ease-in-out infinite;
 }
 
 @keyframes floatLogo{
+
 0%{
 transform:translateY(0px);
 }
+
 50%{
 transform:translateY(-12px);
 }
+
 100%{
 transform:translateY(0px);
 }
+
 }
+
+/* TAG */
 
 .tag{
 border:1px solid #ffd700;
@@ -100,39 +116,49 @@ border-radius:50px;
 font-size:13px;
 letter-spacing:5px;
 color:#ffd700;
-margin-bottom:35px;
-margin-top:-10px;
+margin-bottom:32px;
 backdrop-filter:blur(10px);
 box-shadow:0 0 20px #ffd70022;
 }
 
+/* HEADING */
+
 .hero h1{
-font-family:'Poppins',sans-serif;
 font-size:92px;
-font-weight:700;
 line-height:1.1;
+font-weight:700;
 margin-bottom:25px;
 
-background:linear-gradient(to right,#ffffff,#ffe27a);
+background:
+linear-gradient(to right,#ffffff,#ffe27a);
+
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
+/* SUBTITLE */
+
 .hero p{
-max-width:900px;
-font-size:30px;
+max-width:950px;
+font-size:32px;
 line-height:1.8;
-color:#e7e7e7;
+margin-bottom:30px;
+
+color:#ececec;
+
 font-family:'Cormorant Garamond',serif;
-margin-bottom:25px;
 }
 
+/* MARKETPLACE */
+
 .marketplaces{
-font-size:26px;
-margin-bottom:45px;
-font-family:'Cormorant Garamond',serif;
+font-size:24px;
+margin-bottom:50px;
 color:#fff;
+font-family:'Cormorant Garamond',serif;
 }
+
+/* BUTTONS */
 
 .buttons{
 display:flex;
@@ -170,6 +196,47 @@ background:#ffd700;
 color:black;
 }
 
+/* FEATURES */
+
+.features{
+padding:40px 30px 100px;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+max-width:1300px;
+margin:auto;
+}
+
+.feature-card{
+background:#050505;
+border:1px solid #222;
+padding:35px;
+border-radius:25px;
+text-align:center;
+transition:.4s;
+}
+
+.feature-card:hover{
+transform:translateY(-8px);
+border-color:#ffd700;
+box-shadow:0 0 30px #ffd70022;
+}
+
+.feature-card h3{
+font-size:30px;
+margin-bottom:12px;
+font-family:'Cormorant Garamond',serif;
+color:#ffd700;
+}
+
+.feature-card p{
+color:#ccc;
+line-height:1.8;
+}
+
 /* PRODUCTS */
 
 .products{
@@ -193,7 +260,7 @@ margin:auto;
 
 .card{
 background:#050505;
-border:1px solid #2a2a2a;
+border:1px solid #222;
 border-radius:30px;
 padding:40px;
 transition:.4s;
@@ -227,7 +294,7 @@ line-height:1.9;
 color:#d0d0d0;
 }
 
-/* WHY SECTION */
+/* WHY */
 
 .why{
 padding:120px 30px;
@@ -238,8 +305,8 @@ margin:auto;
 
 .why h2{
 font-size:72px;
-font-family:'Cormorant Garamond',serif;
 margin-bottom:60px;
+font-family:'Cormorant Garamond',serif;
 }
 
 .why-grid{
@@ -278,7 +345,7 @@ font-size:17px;
 /* FOOTER */
 
 footer{
-padding:50px 20px;
+padding:60px 20px;
 text-align:center;
 border-top:1px solid #222;
 color:#888;
@@ -299,7 +366,7 @@ font-size:58px;
 }
 
 .hero p{
-font-size:22px;
+font-size:24px;
 }
 
 .marketplaces{
@@ -313,6 +380,14 @@ font-size:50px;
 
 .card h3{
 font-size:36px;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+.btn{
+width:100%;
 }
 
 }
@@ -329,7 +404,7 @@ font-size:36px;
 <img src="logo.png" class="logo" alt="AYRIX Logo">
 
 <div class="tag">
-PREMIUM HOME ORGANIZERS
+SMART HOME ORGANIZATION
 </div>
 
 <h1>
@@ -338,7 +413,7 @@ Live Better.
 </h1>
 
 <p>
-Designed to bring elegance, calmness and organization into modern living spaces.
+Smart organization solutions for clutter-free modern homes.
 </p>
 
 <div class="marketplaces">
@@ -354,6 +429,44 @@ Explore Products
 <a href="#why" class="btn btn-outline">
 Why AYRIX?
 </a>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>No Drilling</h3>
+<p>
+Easy installation without damaging walls or tiles.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>Waterproof</h3>
+<p>
+Perfect for kitchens, bathrooms and daily use.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>Strong Hold</h3>
+<p>
+Reliable adhesive support for organized spaces.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>Modern Design</h3>
+<p>
+Minimal and clean organization for modern homes.
+</p>
+</div>
 
 </div>
 
@@ -407,7 +520,7 @@ Multi-hook premium organizer strip for towels, keys, kitchen tools and accessori
 
 </section>
 
-<!-- WHY AYRIX -->
+<!-- WHY -->
 
 <section class="why" id="why">
 
@@ -417,30 +530,30 @@ Multi-hook premium organizer strip for towels, keys, kitchen tools and accessori
 
 <div class="why-card">
 
-<h3>Premium</h3>
+<h3>Smart Living</h3>
 
 <p>
-Luxury-inspired organization products designed for elegant modern homes.
+Designed to simplify everyday spaces with modern organization solutions.
 </p>
 
 </div>
 
 <div class="why-card">
 
-<h3>Amazon Ready</h3>
+<h3>Clutter Free</h3>
 
 <p>
-Fast-growing AYRIX home organization products across India.
+Helping homes stay cleaner, calmer and more organized every day.
 </p>
 
 </div>
 
 <div class="why-card">
 
-<h3>Meesho</h3>
+<h3>Affordable</h3>
 
 <p>
-Affordable premium home solutions accessible for every home.
+Thoughtfully designed products that combine practicality and modern aesthetics.
 </p>
 
 </div>
@@ -453,7 +566,7 @@ Affordable premium home solutions accessible for every home.
 
 <footer>
 
-© 2026 AYRIX • Premium Home Organizers
+© 2026 AYRIX • Smart Home Organization
 
 </footer>
 
