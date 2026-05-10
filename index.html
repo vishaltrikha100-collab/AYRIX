@@ -1,187 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta charset="UTF-8">
+<title>AYRIX</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <title>AYRIX</title>
+<style>
 
-  <link rel="stylesheet" href="style.css">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+html{
+    scroll-behavior:smooth;
+}
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+body{
+    background:#000;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+/* BACKGROUND LIGHT */
 
+body::before{
+    content:'';
+    position:fixed;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:700px;
+    height:100vh;
+    background:radial-gradient(circle, rgba(255,215,0,0.14) 0%, rgba(255,215,0,0.03) 35%, transparent 70%);
+    filter:blur(25px);
+    animation:pulseGlow 5s ease-in-out infinite;
+    z-index:-1;
+}
+
+@keyframes pulseGlow{
+    0%{
+        opacity:0.5;
+        transform:translateX(-50%) scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:translateX(-50%) scale(1.08);
+    }
+
+    100%{
+        opacity:0.5;
+        transform:translateX(-50%) scale(1);
+    }
+}
+
+/* HERO SECTION */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    padding:40px 20px;
+    text-align:center;
+}
+
+/* CENTER CONTENT */
+
+.hero-content{
+    max-width:760px;
+    width:100%;
+    position:relative;
+    z-index:2;
+}
+
+/* LOGO */
+
+.logo{
+    width:220px;
+    margin:auto;
+    display:block;
+    margin-bottom:30px;
+
+    filter:
+    drop-shadow(0 0 10px rgba(255,215,0,0.5))
+    drop-shadow(0 0 30px rgba(255,215,0,0.25));
+
+    animation:logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* TAG */
+
+.tag{
+    display:inline-block;
+    border:1px solid rgba(255,215,0,0.7);
+    padding:12px 28px;
+    border-radius:40px;
+    color:#f6d76b;
+    letter-spacing:4px;
+    font-size:12px;
+    margin-bottom:30px;
+}
+
+/* TITLE */
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:72px;
+    line-height:1.05;
+    font-weight:600;
+    color:#f4e2a0;
+    margin-bottom:28px;
+}
+
+/* SUBTITLE */
+
+.subtitle{
+    font-size:22px;
+    color:#e5e5e5;
+    line-height:1.8;
+    margin-bottom:24px;
+}
+
+/* SMALL TEXT */
+
+.platforms{
+    color:#d0d0d0;
+    font-size:20px;
+    margin-bottom:45px;
+}
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+
+    background:#ffd700;
+    color:#000;
+    padding:18px 42px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(255,215,0,0.4);
+}
+
+.btn-secondary{
+
+    border:1px solid rgba(255,215,0,0.7);
+    color:#ffd700;
+    padding:18px 42px;
+    border-radius:14px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn-secondary:hover{
+    background:rgba(255,215,0,0.08);
+}
+
+/* FLOATING HERO IMAGE */
+
+.floating-hero{
+
+    position:fixed;
+
+    right:25px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:180px;
+
+    z-index:1;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,215,0,0.18);
+
+    background:#111;
+
+    box-shadow:
+    0 0 20px rgba(255,215,0,0.12),
+    0 0 50px rgba(255,215,0,0.05);
+
+    animation:floatHero 5s ease-in-out infinite;
+}
+
+.floating-hero img{
+    width:100%;
+    display:block;
+}
+
+@keyframes floatHero{
+
+    0%{
+        transform:translateY(-50%) translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-50%) translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(-50%) translateY(0px);
+    }
+}
+
+/* PRODUCT SECTION */
+
+.products{
+    padding:120px 40px;
+}
+
+.section-title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:64px;
+    color:#f4e2a0;
+    margin-bottom:80px;
+}
+
+.product-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:40px;
+
+    max-width:1300px;
+    margin:auto;
+}
+
+.product-card{
+
+    background:#050505;
+
+    border:1px solid rgba(255,215,0,0.12);
+
+    border-radius:28px;
+
+    padding:28px;
+
+    text-align:center;
+
+    transition:0.4s;
+}
+
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 0 35px rgba(255,215,0,0.08);
+}
+
+.product-card img{
+
+    width:100%;
+    border-radius:20px;
+    margin-bottom:25px;
+}
+
+.product-card h3{
+
+    font-size:34px;
+    color:#f4e2a0;
+    font-family:'Cormorant Garamond',serif;
+    margin-bottom:18px;
+}
+
+.product-card p{
+
+    color:#d2d2d2;
+    line-height:1.8;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .floating-hero{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:54px;
+    }
+}
+
+@media(max-width:700px){
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .subtitle{
+        font-size:18px;
+    }
+
+    .platforms{
+        font-size:16px;
+    }
+
+    .section-title{
+        font-size:42px;
+    }
+
+    .logo{
+        width:170px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- BACKGROUND LIGHT -->
+<!-- HERO -->
 
-  <div class="bg-light"></div>
-
-  <!-- HERO SECTION -->
-
-  <section class="hero">
-
-    <!-- LEFT SIDE -->
+<section class="hero">
 
     <div class="hero-content">
 
-      <!-- LOGO -->
+        <img src="logo.png" class="logo" alt="AYRIX Logo">
 
-      <img src="logo.png" alt="AYRIX Logo" class="logo">
+        <div class="tag">
+            SMART HOME ORGANIZATION
+        </div>
 
-      <!-- TAG -->
+        <h1>
+            Smart organization solutions for clutter-free modern homes.
+        </h1>
 
-      <div class="premium-tag">
-        SMART HOME ORGANIZATION
-      </div>
+        <div class="subtitle">
+            Affordable everyday organizers designed to simplify kitchens, bathrooms and daily living spaces.
+        </div>
 
-      <!-- TITLE -->
+        <div class="platforms">
+            Available on Amazon, Flipkart & Meesho
+        </div>
 
-      <h1 class="hero-title">
-        Smart organization solutions
-        for clutter-free modern homes.
-      </h1>
+        <div class="buttons">
 
-      <!-- TEXT -->
+            <a href="#products" class="btn-primary">
+                Explore Products
+            </a>
 
-      <p class="hero-text">
-        Affordable everyday organizers designed to simplify kitchens,
-        bathrooms and daily living spaces.
-      </p>
+            <a href="#uses" class="btn-secondary">
+                View Uses
+            </a>
 
-      <!-- MARKETPLACE -->
-
-      <p class="marketplace">
-        Available on Amazon, Flipkart & Meesho
-      </p>
-
-      <!-- BUTTONS -->
-
-      <div class="buttons">
-
-        <a href="#products" class="btn primary-btn">
-          Explore Products
-        </a>
-
-        <a href="#uses" class="btn secondary-btn">
-          View Uses
-        </a>
-
-      </div>
+        </div>
 
     </div>
 
-    <!-- RIGHT SIDE IMAGE -->
+</section>
 
-    <div class="hero-image-side">
+<!-- FLOATING RIGHT IMAGE -->
 
-      <img src="bathroom-hero.png.png" alt="Bathroom Hero">
+<div class="floating-hero">
+    <img src="bathroom-hero.png.png" alt="">
+</div>
 
-    </div>
+<!-- PRODUCTS -->
 
-  </section>
-
-  <!-- PRODUCTS -->
-
-  <section class="products-section" id="products">
+<section class="products" id="products">
 
     <h2 class="section-title">
-      Featured Products
+        Featured Products
     </h2>
 
-    <div class="products-grid">
+    <div class="product-grid">
 
-      <!-- FLOWER HOOK -->
+        <div class="product-card">
 
-      <div class="product-card">
+            <img src="flower-hook.png" alt="">
 
-        <img src="flower-hook.png" alt="Flower Hook">
+            <h3>Flower Hook</h3>
 
-        <h3>Flower Hook</h3>
+            <p>
+                Multi-purpose transparent adhesive hook designed for kitchens, bathrooms and everyday home organization.
+            </p>
 
-        <p>
-          Multi-purpose transparent adhesive hook designed for kitchens,
-          bathrooms and everyday home organization.
-        </p>
+        </div>
 
-      </div>
+        <div class="product-card">
 
-      <!-- PIN HOOK -->
+            <img src="pin-hook.png" alt="">
 
-      <div class="product-card featured">
+            <h3>Pin Hook</h3>
 
-        <img src="pin-hook.png" alt="Pin Hook">
+            <p>
+                Strong stainless steel no-drill hook crafted for daily use and clutter-free organization.
+            </p>
 
-        <h3>Pin Hook</h3>
+        </div>
 
-        <p>
-          Strong stainless adhesive hook for daily utility and modern
-          organizing needs.
-        </p>
+        <div class="product-card">
 
-      </div>
+            <img src="three-hook-strip.png" alt="">
 
-      <!-- 3 STRIP -->
+            <h3>3 Strip Hook</h3>
 
-      <div class="product-card">
+            <p>
+                Premium multi-hook organizer perfect for towels, utensils, keys and accessories.
+            </p>
 
-        <img src="three-hook-strip.png" alt="3 Strip Hook">
-
-        <h3>3 Strip Hook</h3>
-
-        <p>
-          Multi-hook organizer perfect for towels, keys,
-          accessories and kitchen tools.
-        </p>
-
-      </div>
+        </div>
 
     </div>
 
-  </section>
-
-  <!-- USE CASES -->
-
-  <section class="uses-section" id="uses">
-
-    <h2 class="section-title">
-      Smart Everyday Uses
-    </h2>
-
-    <div class="uses-grid">
-
-      <div class="use-card">
-        <img src="kitchen-organization.png" alt="">
-      </div>
-
-      <div class="use-card">
-        <img src="bathroom-setup.png" alt="">
-      </div>
-
-      <div class="use-card">
-        <img src="entryway-organization.png" alt="">
-      </div>
-
-      <div class="use-card">
-        <img src="cable-management.png" alt="">
-      </div>
-
-      <div class="use-card">
-        <img src="accessory-holder.png" alt="">
-      </div>
-
-    </div>
-
-  </section>
+</section>
 
 </body>
-
 </html>
