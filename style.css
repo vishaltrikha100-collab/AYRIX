@@ -11,17 +11,71 @@ body{
     overflow-x:hidden;
 }
 
-.background-glow{
+/* Animated Background */
+
+body::before{
+    content:"";
     position:fixed;
-    top:0;
-    left:0;
     width:100%;
     height:100%;
+    top:0;
+    left:0;
     background:
-    radial-gradient(circle at top,
-    rgba(255,215,0,0.18),
-    transparent 35%);
+    radial-gradient(circle at center,
+    rgba(255,215,0,0.28) 0%,
+    rgba(255,215,0,0.10) 20%,
+    transparent 60%);
+    animation:pulseGlow 5s ease-in-out infinite;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(255,215,0,0.05),
+        transparent,
+        rgba(255,215,0,0.05)
+    );
+    animation:moveLight 8s linear infinite;
     z-index:-1;
+}
+
+@keyframes pulseGlow{
+    0%{
+        transform:scale(1);
+        opacity:0.7;
+    }
+
+    50%{
+        transform:scale(1.08);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:0.7;
+    }
+}
+
+@keyframes moveLight{
+    0%{
+        transform:translateY(-50px);
+    }
+
+    50%{
+        transform:translateY(50px);
+    }
+
+    100%{
+        transform:translateY(-50px);
+    }
 }
 
 .hero{
@@ -34,41 +88,72 @@ body{
     padding:40px 20px;
 }
 
+/* BIGGER LOGO */
+
 .logo{
-    width:320px;
-    margin-bottom:40px;
-    filter:drop-shadow(0 0 18px rgba(255,215,0,0.35));
+    width:520px;
+    max-width:95%;
+    margin-bottom:45px;
+
+    filter:
+    drop-shadow(0 0 10px rgba(255,215,0,0.7))
+    drop-shadow(0 0 30px rgba(255,215,0,0.5))
+    drop-shadow(0 0 60px rgba(255,215,0,0.25));
+
+    animation:logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
 }
 
 .premium-badge{
     border:1px solid gold;
     color:gold;
-    padding:14px 30px;
+    padding:14px 34px;
     border-radius:50px;
     letter-spacing:4px;
     font-size:13px;
-    margin-bottom:35px;
+    margin-bottom:40px;
+
+    box-shadow:
+    0 0 10px rgba(255,215,0,0.15);
 }
 
 .hero h1{
-    font-size:64px;
+    font-size:72px;
     font-weight:700;
-    margin-bottom:20px;
+    margin-bottom:25px;
     line-height:1.1;
+
+    background:linear-gradient(to right,#ffffff,#f7d774);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .subtitle{
-    font-size:22px;
+    font-size:23px;
     color:#cccccc;
     max-width:850px;
     line-height:1.8;
-    margin-bottom:25px;
+    margin-bottom:28px;
 }
 
 .marketplaces{
     font-size:20px;
-    color:#f2f2f2;
-    margin-bottom:50px;
+    color:#f5f5f5;
+    margin-bottom:55px;
 }
 
 .buttons{
@@ -91,10 +176,13 @@ body{
 .btn-primary{
     background:gold;
     color:black;
+
+    box-shadow:
+    0 0 20px rgba(255,215,0,0.25);
 }
 
 .btn-primary:hover{
-    transform:translateY(-4px);
+    transform:translateY(-4px) scale(1.03);
 }
 
 .btn-secondary{
@@ -107,13 +195,15 @@ body{
     color:black;
 }
 
+/* Products */
+
 .products{
     padding:120px 8%;
 }
 
 .products h2{
     text-align:center;
-    font-size:52px;
+    font-size:54px;
     margin-bottom:70px;
 }
 
@@ -130,11 +220,16 @@ body{
     padding:35px;
     transition:0.4s;
     text-align:center;
+
+    backdrop-filter:blur(10px);
 }
 
 .product-card:hover{
     transform:translateY(-10px);
     border-color:gold;
+
+    box-shadow:
+    0 0 30px rgba(255,215,0,0.15);
 }
 
 .product-card img{
@@ -155,13 +250,15 @@ body{
     font-size:16px;
 }
 
+/* Why Ayrix */
+
 .why-ayrix{
     padding:120px 8%;
 }
 
 .why-ayrix h2{
     text-align:center;
-    font-size:52px;
+    font-size:54px;
     margin-bottom:70px;
 }
 
@@ -176,6 +273,8 @@ body{
     padding:40px;
     border-radius:25px;
     border:1px solid rgba(255,215,0,0.15);
+
+    backdrop-filter:blur(10px);
 }
 
 .why-card h3{
@@ -196,14 +295,16 @@ footer{
     color:#999;
 }
 
+/* Mobile */
+
 @media(max-width:768px){
 
 .logo{
-    width:240px;
+    width:320px;
 }
 
 .hero h1{
-    font-size:42px;
+    font-size:44px;
 }
 
 .subtitle{
