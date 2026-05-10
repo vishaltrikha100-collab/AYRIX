@@ -1,1 +1,1 @@
-console.log("AYRIX Website Loaded Successfully");
+console.log("AYRIX Website Loaded");
