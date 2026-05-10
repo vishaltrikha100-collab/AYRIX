@@ -1,574 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>AYRIX | Smart Home Organization</title>
+  <title>AYRIX | Smart Organization</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:#000;
-color:white;
-font-family:'Poppins',sans-serif;
-overflow-x:hidden;
-}
-
-/* LIVE GOLDEN GLOW */
-
-body::before{
-content:'';
-position:fixed;
-width:900px;
-height:900px;
-background:
-radial-gradient(circle,
-rgba(255,215,0,0.30) 0%,
-transparent 70%);
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-animation:pulseGlow 5s ease-in-out infinite;
-z-index:-1;
-}
-
-@keyframes pulseGlow{
-
-0%{
-opacity:.5;
-transform:translate(-50%,-50%) scale(1);
-}
-
-50%{
-opacity:1;
-transform:translate(-50%,-50%) scale(1.18);
-}
-
-100%{
-opacity:.5;
-transform:translate(-50%,-50%) scale(1);
-}
-
-}
-
-/* HERO */
-
-.hero{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px 20px;
-}
-
-/* LOGO */
-
-.logo{
-width:430px;
-max-width:95%;
-margin-bottom:8px;
-
-filter:
-drop-shadow(0 0 12px #ffd700)
-drop-shadow(0 0 45px #ffd70088);
-
-animation:floatLogo 4s ease-in-out infinite;
-}
-
-@keyframes floatLogo{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-12px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* TAG */
-
-.tag{
-border:1px solid #ffd700;
-padding:14px 32px;
-border-radius:50px;
-font-size:13px;
-letter-spacing:5px;
-color:#ffd700;
-margin-bottom:32px;
-backdrop-filter:blur(10px);
-box-shadow:0 0 20px #ffd70022;
-}
-
-/* HEADING */
-
-.hero h1{
-font-size:92px;
-line-height:1.1;
-font-weight:700;
-margin-bottom:25px;
-
-background:
-linear-gradient(to right,#ffffff,#ffe27a);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-/* SUBTITLE */
-
-.hero p{
-max-width:950px;
-font-size:32px;
-line-height:1.8;
-margin-bottom:30px;
-
-color:#ececec;
-
-font-family:'Cormorant Garamond',serif;
-}
-
-/* MARKETPLACE */
-
-.marketplaces{
-font-size:24px;
-margin-bottom:50px;
-color:#fff;
-font-family:'Cormorant Garamond',serif;
-}
-
-/* BUTTONS */
-
-.buttons{
-display:flex;
-gap:22px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.btn{
-padding:18px 44px;
-border-radius:14px;
-text-decoration:none;
-font-weight:600;
-font-size:16px;
-transition:.4s;
-}
-
-.btn-primary{
-background:#ffd700;
-color:black;
-box-shadow:0 0 30px #ffd70066;
-}
-
-.btn-primary:hover{
-transform:translateY(-5px);
-}
-
-.btn-outline{
-border:1px solid #ffd700;
-color:#ffd700;
-}
-
-.btn-outline:hover{
-background:#ffd700;
-color:black;
-}
-
-/* FEATURES */
-
-.features{
-padding:40px 30px 100px;
-}
-
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-max-width:1300px;
-margin:auto;
-}
-
-.feature-card{
-background:#050505;
-border:1px solid #222;
-padding:35px;
-border-radius:25px;
-text-align:center;
-transition:.4s;
-}
-
-.feature-card:hover{
-transform:translateY(-8px);
-border-color:#ffd700;
-box-shadow:0 0 30px #ffd70022;
-}
-
-.feature-card h3{
-font-size:30px;
-margin-bottom:12px;
-font-family:'Cormorant Garamond',serif;
-color:#ffd700;
-}
-
-.feature-card p{
-color:#ccc;
-line-height:1.8;
-}
-
-/* PRODUCTS */
-
-.products{
-padding:120px 40px;
-text-align:center;
-}
-
-.products h2{
-font-size:72px;
-font-family:'Cormorant Garamond',serif;
-margin-bottom:80px;
-}
-
-.product-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:40px;
-max-width:1400px;
-margin:auto;
-}
-
-.card{
-background:#050505;
-border:1px solid #222;
-border-radius:30px;
-padding:40px;
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-12px);
-border-color:#ffd700;
-box-shadow:0 0 40px #ffd70033;
-}
-
-.card img{
-width:100%;
-height:300px;
-object-fit:contain;
-background:white;
-padding:20px;
-border-radius:20px;
-margin-bottom:25px;
-}
-
-.card h3{
-font-size:44px;
-margin-bottom:20px;
-font-family:'Cormorant Garamond',serif;
-}
-
-.card p{
-font-size:18px;
-line-height:1.9;
-color:#d0d0d0;
-}
-
-/* WHY */
-
-.why{
-padding:120px 30px;
-text-align:center;
-max-width:1200px;
-margin:auto;
-}
-
-.why h2{
-font-size:72px;
-margin-bottom:60px;
-font-family:'Cormorant Garamond',serif;
-}
-
-.why-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.why-card{
-background:#070707;
-border:1px solid #222;
-padding:40px;
-border-radius:25px;
-transition:.4s;
-}
-
-.why-card:hover{
-transform:translateY(-8px);
-border-color:#ffd700;
-box-shadow:0 0 30px #ffd70022;
-}
-
-.why-card h3{
-font-size:34px;
-margin-bottom:18px;
-font-family:'Cormorant Garamond',serif;
-color:#ffd700;
-}
-
-.why-card p{
-line-height:1.9;
-color:#d0d0d0;
-font-size:17px;
-}
-
-/* FOOTER */
-
-footer{
-padding:60px 20px;
-text-align:center;
-border-top:1px solid #222;
-color:#888;
-font-size:15px;
-margin-top:80px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.logo{
-width:260px;
-}
-
-.hero h1{
-font-size:58px;
-}
-
-.hero p{
-font-size:24px;
-}
-
-.marketplaces{
-font-size:22px;
-}
-
-.products h2,
-.why h2{
-font-size:50px;
-}
-
-.card h3{
-font-size:36px;
-}
-
-.buttons{
-flex-direction:column;
-}
-
-.btn{
-width:100%;
-}
-
-}
-
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HERO -->
+  <!-- HERO SECTION -->
+  <section class="hero">
 
-<section class="hero">
+    <div class="overlay"></div>
 
-<img src="logo.png" class="logo" alt="AYRIX Logo">
+    <div class="hero-content">
 
-<div class="tag">
-SMART HOME ORGANIZATION
-</div>
+      <img src="ayrix-logo.png" alt="AYRIX Logo" class="logo">
 
-<h1>
-Organize Better.<br>
-Live Better.
-</h1>
+      <div class="premium-badge">
+        SMART HOME ORGANIZATION
+      </div>
 
-<p>
-Smart organization solutions for clutter-free modern homes.
-</p>
+      <h1>
+        Smart organization solutions for clutter-free modern homes.
+      </h1>
 
-<div class="marketplaces">
-Available on Amazon, Flipkart & Meesho
-</div>
+      <p class="hero-text">
+        Affordable everyday organizers designed to simplify kitchens,
+        bathrooms and daily living spaces.
+      </p>
 
-<div class="buttons">
+      <p class="marketplaces">
+        Available on Amazon, Flipkart & Meesho
+      </p>
 
-<a href="#products" class="btn btn-primary">
-Explore Products
-</a>
+      <div class="hero-buttons">
+        <a href="#products" class="btn-primary">
+          Explore Products
+        </a>
 
-<a href="#why" class="btn btn-outline">
-Why AYRIX?
-</a>
+        <a href="#flower-hook" class="btn-secondary">
+          View Uses
+        </a>
+      </div>
 
-</div>
+    </div>
+  </section>
 
-</section>
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
 
-<!-- FEATURES -->
+    <h2>Featured Products</h2>
 
-<section class="features">
+    <div class="product-grid">
 
-<div class="feature-grid">
+      <!-- FLOWER HOOK -->
+      <div class="product-card">
+        <img src="flower-hook.png" alt="Flower Hook">
 
-<div class="feature-card">
-<h3>No Drilling</h3>
-<p>
-Easy installation without damaging walls or tiles.
-</p>
-</div>
+        <h3>Flower Hook</h3>
 
-<div class="feature-card">
-<h3>Waterproof</h3>
-<p>
-Perfect for kitchens, bathrooms and daily use.
-</p>
-</div>
+        <p>
+          Elegant transparent no-drill hook designed for everyday home organization.
+        </p>
+      </div>
 
-<div class="feature-card">
-<h3>Strong Hold</h3>
-<p>
-Reliable adhesive support for organized spaces.
-</p>
-</div>
+      <!-- PIN HOOK -->
+      <div class="product-card">
+        <img src="pin-hook.png" alt="Pin Hook">
 
-<div class="feature-card">
-<h3>Modern Design</h3>
-<p>
-Minimal and clean organization for modern homes.
-</p>
-</div>
+        <h3>Pin Hook</h3>
 
-</div>
+        <p>
+          Minimal premium hook for kitchens, bathrooms and utility spaces.
+        </p>
+      </div>
 
-</section>
+      <!-- STRIP HOOK -->
+      <div class="product-card">
+        <img src="three-hook-strip.png" alt="3 Strip Hook">
 
-<!-- PRODUCTS -->
+        <h3>3 Strip Hook</h3>
 
-<section class="products" id="products">
+        <p>
+          Multi-hook organizer strip for towels, keys and accessories.
+        </p>
+      </div>
 
-<h2>Featured Products</h2>
+    </div>
+  </section>
 
-<div class="product-grid">
+  <!-- FLOWER HOOK USES -->
+  <section class="uses-section" id="flower-hook">
 
-<div class="card">
+    <h2>One Hook. Many Uses.</h2>
 
-<img src="flower-hook.png" alt="Flower Hook">
+    <p class="section-subtitle">
+      Designed for practical everyday organization in modern homes.
+    </p>
 
-<h3>Flower Hook</h3>
+    <div class="uses-grid">
 
-<p>
-Elegant transparent adhesive hook crafted for modern kitchens, bathrooms and organized living spaces.
-</p>
+      <!-- Kitchen -->
+      <div class="use-card">
+        <img src="kitchen-setup.png" alt="Kitchen Setup">
 
-</div>
+        <div class="use-content">
+          <h3>Kitchen Organization</h3>
 
-<div class="card">
+          <p>
+            Perfect for spoons, towels, mugs and kitchen tools.
+          </p>
+        </div>
+      </div>
 
-<img src="pin-hook.png" alt="Pin Hook">
+      <!-- Bathroom -->
+      <div class="use-card">
+        <img src="bathroom-setup.png" alt="Bathroom Setup">
 
-<h3>Pin Hook</h3>
+        <div class="use-content">
+          <h3>Bathroom Setup</h3>
 
-<p>
-Premium no-drill stainless pin hook designed for strong everyday organization needs.
-</p>
+          <p>
+            Organize towels, loofahs, razors and bathroom essentials.
+          </p>
+        </div>
+      </div>
 
-</div>
+      <!-- Entryway -->
+      <div class="use-card">
+        <img src="entryway-setup.png" alt="Entryway Setup">
 
-<div class="card">
+        <div class="use-content">
+          <h3>Entryway Organization</h3>
 
-<img src="three-hook-strip.png" alt="3 Strip Hook">
+          <p>
+            Keep keys, masks and daily accessories organized.
+          </p>
+        </div>
+      </div>
 
-<h3>3 Strip Hook</h3>
+      <!-- Cable -->
+      <div class="use-card">
+        <img src="cable-management.png" alt="Cable Management">
 
-<p>
-Multi-hook premium organizer strip for towels, keys, kitchen tools and accessories.
-</p>
+        <div class="use-content">
+          <h3>Cable Management</h3>
 
-</div>
+          <p>
+            Organize charging wires and earphones neatly.
+          </p>
+        </div>
+      </div>
 
-</div>
+      <!-- Accessories -->
+      <div class="use-card">
+        <img src="accessory-holder.png" alt="Accessory Holder">
 
-</section>
+        <div class="use-content">
+          <h3>Accessory Holder</h3>
 
-<!-- WHY -->
+          <p>
+            Ideal for lightweight daily accessories and essentials.
+          </p>
+        </div>
+      </div>
 
-<section class="why" id="why">
+    </div>
+  </section>
 
-<h2>Why AYRIX?</h2>
-
-<div class="why-grid">
-
-<div class="why-card">
-
-<h3>Smart Living</h3>
-
-<p>
-Designed to simplify everyday spaces with modern organization solutions.
-</p>
-
-</div>
-
-<div class="why-card">
-
-<h3>Clutter Free</h3>
-
-<p>
-Helping homes stay cleaner, calmer and more organized every day.
-</p>
-
-</div>
-
-<div class="why-card">
-
-<h3>Affordable</h3>
-
-<p>
-Thoughtfully designed products that combine practicality and modern aesthetics.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-© 2026 AYRIX • Smart Home Organization
-
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2026 AYRIX — Smart organization for everyday spaces.
+    </p>
+  </footer>
 
 </body>
 </html>
