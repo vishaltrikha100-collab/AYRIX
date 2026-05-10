@@ -1,278 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AYRIX | Premium Home Organizers</title>
+<title>AYRIX | Premium Home Organizers</title>
 
-  <!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
 
-  <!-- CSS FILE -->
-  <link rel="stylesheet" href="style.css">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
+body{
+background:#000;
+color:white;
+font-family:'Poppins',sans-serif;
+overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+
+body::before{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#ffd70055 0%,transparent 70%);
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+animation:pulse 5s infinite ease-in-out;
+z-index:-1;
+}
+
+@keyframes pulse{
+0%{
+opacity:.4;
+transform:translate(-50%,-50%) scale(1);
+}
+50%{
+opacity:.9;
+transform:translate(-50%,-50%) scale(1.2);
+}
+100%{
+opacity:.4;
+transform:translate(-50%,-50%) scale(1);
+}
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 20px;
+}
+
+.logo{
+width:320px;
+margin-bottom:20px;
+filter:
+drop-shadow(0 0 10px #ffd700)
+drop-shadow(0 0 30px #ffd700);
+animation:floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
+}
+
+.tag{
+border:1px solid #ffd700;
+padding:12px 28px;
+border-radius:40px;
+font-size:13px;
+letter-spacing:4px;
+color:#ffd700;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:90px;
+font-weight:700;
+line-height:1.1;
+background:linear-gradient(to right,#fff,#ffd700);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:25px;
+}
+
+.hero p{
+max-width:850px;
+font-size:26px;
+line-height:1.8;
+color:#ddd;
+font-family:'Cormorant Garamond',serif;
+margin-bottom:25px;
+}
+
+.marketplaces{
+font-size:22px;
+margin-bottom:40px;
+color:white;
+font-family:'Cormorant Garamond',serif;
+}
+
+.buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.btn{
+padding:18px 42px;
+border-radius:14px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+font-size:16px;
+}
+
+.btn-primary{
+background:#ffd700;
+color:black;
+box-shadow:0 0 25px #ffd70088;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+}
+
+.btn-outline{
+border:1px solid #ffd700;
+color:#ffd700;
+}
+
+.btn-outline:hover{
+background:#ffd700;
+color:black;
+}
+
+/* PRODUCTS */
+
+.products{
+padding:120px 40px;
+text-align:center;
+}
+
+.products h2{
+font-size:72px;
+font-family:'Cormorant Garamond',serif;
+margin-bottom:70px;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
+max-width:1400px;
+margin:auto;
+}
+
+.card{
+background:#050505;
+border:1px solid #2a2a2a;
+border-radius:30px;
+padding:40px;
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-12px);
+border-color:#ffd700;
+box-shadow:0 0 35px #ffd70033;
+}
+
+.card img{
+width:100%;
+height:280px;
+object-fit:contain;
+margin-bottom:30px;
+border-radius:20px;
+background:white;
+padding:15px;
+}
+
+.card h3{
+font-size:44px;
+margin-bottom:20px;
+font-family:'Cormorant Garamond',serif;
+}
+
+.card p{
+font-size:18px;
+line-height:1.8;
+color:#d0d0d0;
+}
+
+/* WHY SECTION */
+
+.why{
+padding:120px 30px;
+text-align:center;
+max-width:1100px;
+margin:auto;
+}
+
+.why h2{
+font-size:72px;
+margin-bottom:50px;
+font-family:'Cormorant Garamond',serif;
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.why-card{
+background:#070707;
+border:1px solid #222;
+padding:40px;
+border-radius:25px;
+}
+
+.why-card h3{
+font-size:32px;
+margin-bottom:15px;
+font-family:'Cormorant Garamond',serif;
+color:#ffd700;
+}
+
+.why-card p{
+line-height:1.8;
+color:#ccc;
+}
+
+/* FOOTER */
+
+footer{
+padding:50px 20px;
+text-align:center;
+border-top:1px solid #222;
+color:#888;
+font-size:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.logo{
+width:220px;
+}
+
+.hero h1{
+font-size:58px;
+}
+
+.hero p{
+font-size:22px;
+}
+
+.products h2,
+.why h2{
+font-size:52px;
+}
+
+.card h3{
+font-size:36px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+<section class="hero">
 
-  <nav>
+<img src="logo.png" class="logo">
 
-    <div class="nav-logo">
-      AYRIX
-    </div>
+<div class="tag">
+PREMIUM HOME ORGANIZERS
+</div>
 
-    <div class="nav-links">
+<h1>
+Organize Better.<br>
+Live Better.
+</h1>
 
-      <a href="#products">Products</a>
-      <a href="#why">Why AYRIX</a>
-      <a href="#">Amazon</a>
-      <a href="#">Flipkart</a>
-      <a href="#">Meesho</a>
+<p>
+Designed to bring elegance, calmness and organization into modern living spaces.
+</p>
 
-    </div>
+<div class="marketplaces">
+Available on Amazon, Flipkart & Meesho
+</div>
 
-  </nav>
+<div class="buttons">
+<a href="#products" class="btn btn-primary">
+Explore Products
+</a>
 
-  <!-- HERO SECTION -->
+<a href="#why" class="btn btn-outline">
+Why AYRIX?
+</a>
+</div>
 
-  <section class="hero">
+</section>
 
-    <img src="logo.png" class="logo">
+<section class="products" id="products">
 
-    <div class="premium-tag">
-      PREMIUM HOME ORGANIZERS
-    </div>
+<h2>Featured Products</h2>
 
-    <h1>
-      Organize Better.<br>
-      Live Better.
-    </h1>
+<div class="product-grid">
 
-    <div class="subtitle">
+<div class="card">
+<img src="flower-hook.png">
+<h3>Flower Hook</h3>
 
-      Designed to bring elegance, calmness and organization into modern living spaces.
+<p>
+Elegant transparent adhesive hook crafted for modern kitchens, bathrooms and organized living spaces.
+</p>
+</div>
 
-    </div>
+<div class="card">
+<img src="pin-hook.png">
+<h3>Pin Hook</h3>
 
-    <div class="marketplaces">
-      Available on Amazon, Flipkart & Meesho
-    </div>
+<p>
+Premium no-drill stainless pin hook designed for strong everyday organization needs.
+</p>
+</div>
 
-    <div class="buttons">
+<div class="card">
+<img src="3-strip-hook.png">
+<h3>3 Strip Hook</h3>
 
-      <a href="#products" class="btn-primary">
-        Explore Products
-      </a>
+<p>
+Multi-hook premium organizer strip for towels, keys, kitchen tools and accessories.
+</p>
+</div>
 
-      <a href="#why" class="btn-secondary">
-        Why AYRIX?
-      </a>
+</div>
 
-    </div>
+</section>
 
-  </section>
+<section class="why" id="why">
 
-  <!-- TRUST SECTION -->
+<h2>Why AYRIX?</h2>
 
-  <section class="trust-section">
+<div class="why-grid">
 
-    <h2>
-      Trusted Platforms
-    </h2>
+<div class="why-card">
+<h3>Premium</h3>
+<p>
+Luxury-inspired organization products designed for elegant modern homes.
+</p>
+</div>
 
-    <div class="trust-grid">
+<div class="why-card">
+<h3>Amazon Ready</h3>
+<p>
+Fast-growing AYRIX home organization products across India.
+</p>
+</div>
 
-      <div class="trust-card">
+<div class="why-card">
+<h3>Meesho</h3>
+<p>
+Affordable premium home solutions accessible for every home.
+</p>
+</div>
 
-        <h3>Amazon</h3>
+</div>
 
-        <p>
-          Premium delivery experience with trusted nationwide fulfillment.
-        </p>
+</section>
 
-      </div>
-
-      <div class="trust-card">
-
-        <h3>Flipkart</h3>
-
-        <p>
-          Fast-growing AYRIX home organization products across India.
-        </p>
-
-      </div>
-
-      <div class="trust-card">
-
-        <h3>Meesho</h3>
-
-        <p>
-          Affordable premium home solutions accessible for every home.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PRODUCTS SECTION -->
-
-  <section class="products" id="products">
-
-    <h2>
-      Featured Products
-    </h2>
-
-    <div class="product-grid">
-
-      <!-- FLOWER HOOK -->
-
-      <div class="product-card">
-
-        <img src="flower-hook.png">
-
-        <h3>
-          Flower Hook
-        </h3>
-
-        <p>
-          Elegant transparent adhesive hook crafted for modern kitchens, bathrooms and organized living spaces.
-        </p>
-
-      </div>
-
-      <!-- PIN HOOK -->
-
-      <div class="product-card">
-
-        <img src="pin-hook.png">
-
-        <h3>
-          Pin Hook
-        </h3>
-
-        <p>
-          Premium no-drill stainless pin hook designed for strong everyday organization needs.
-        </p>
-
-      </div>
-
-      <!-- 3 STRIP HOOK -->
-
-      <div class="product-card">
-
-        <img src="3-strip-hook.png">
-
-        <h3>
-          3 Strip Hook
-        </h3>
-
-        <p>
-          Multi-hook premium organizer strip for towels, keys, kitchen tools and accessories.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- WHY AYRIX -->
-
-  <section class="why" id="why">
-
-    <h2>
-      Why AYRIX
-    </h2>
-
-    <div class="why-grid">
-
-      <div class="why-card">
-
-        <h3>
-          Premium Design
-        </h3>
-
-        <p>
-          Luxury black and gold aesthetics inspired by modern premium lifestyle brands.
-        </p>
-
-      </div>
-
-      <div class="why-card">
-
-        <h3>
-          Strong Hold
-        </h3>
-
-        <p>
-          Reliable adhesive technology built for daily modern home organization.
-        </p>
-
-      </div>
-
-      <div class="why-card">
-
-        <h3>
-          No Drilling
-        </h3>
-
-        <p>
-          Easy installation without damaging walls or requiring tools.
-        </p>
-
-      </div>
-
-      <div class="why-card">
-
-        <h3>
-          Elegant Living
-        </h3>
-
-        <p>
-          AYRIX products are designed to create cleaner, calmer and organized homes.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <h2>
-      AYRIX
-    </h2>
-
-    <p>
-      Premium Home Organizers
-    </p>
-
-    <br>
-
-    <p>
-      Available on Amazon, Flipkart & Meesho
-    </p>
-
-    <br>
-
-    <p>
-      © 2026 AYRIX. All Rights Reserved.
-    </p>
-
-  </footer>
+<footer>
+© 2026 AYRIX • Premium Home Organizers
+</footer>
 
 </body>
-
 </html>
